@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "ClipSync",
+    "description": "This extension will help you copy text from all your devices linked to google account.",
+    "version": "0.1",
+    "icons": {
+        "128": "clipboard.png"
+    },
+    "browser_action": {
+        "default_icon": "clipboard.png",
+        "default_popup": "credentials.html"
+    },
+    "background": {
+        "page": "background.html"
+    },
+    "permissions": [
+        "identity",
+        "tabs"
+    ],
+    "content_scripts": [{
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": ["jquery.js", "oncopy.js"]
+    }],
+    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+    "oauth2": {
+        "client_id": "749113595662-q2sfn3t387ncegqjam7vd1amq2u8sfcs.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/userinfo.profile"
+        ]
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxrf1YPHhIH7EIrMxc+lZcZ5RFY+p11MBDP4U1yqV9MOGfnaMNocjghi0BktroeksRQwIdsSLWCjf1GoifHjirIYtZYv40SIn5LwfaDDxhaAuVFqRn1uJrd+pj2yfqDQfxefuKj69bxeaiHIi6Z/HeXBW65nHN8txfS6QDCjIttoq3V+uAkONwfHiavezqQOTZhj6mg+pymeMPxJZd9T8jXPQiBfdLQbXItNXmiH9Es4cAZLxTekH+KkiUAUeoZAoHzeWGK9HSToNLYm7Wn5BcrTnM+rUfyHhR3ocStpwVWGx2ydrHCivtUvLSlwUpSvfUM6P3wjSDMSstw0PBeXHOQIDAQAB"
+}
